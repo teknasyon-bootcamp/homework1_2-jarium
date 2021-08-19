@@ -1,7 +1,5 @@
 <?php
 
-<?php
-
 $gender = "male"; // cinsiyet (male/female)
 $weight = 55; // kilo (kg)
 $height = 170; // boy (cm)
