@@ -1,5 +1,7 @@
 <?php
 
+<?php
+
 $gender = "male"; // cinsiyet (male/female)
 $weight = 55; // kilo (kg)
 $height = 170; // boy (cm)
@@ -9,35 +11,33 @@ $guess = "1470"; // Tahmin edilen değer
 
 #Cinsiyet Erkekse
 if ($gender == 'male'){
-    $mBmr = 88.362 + (13.397 * $weight) + (4.799 * $height) - (5.677 * $age);
-    echo "BMR:".$mBmr."\n";
-    #Tahmin değeri ile karşılaştırma
-    if ($guess > $mBmr){
-        echo "Tahmin değerinden düşük";
-    }
-    elseif ($guess == $mBmr){
-        echo "Tahmin değerine eşit";
-    }
-    elseif ($guess < $mBmr){
-        echo "Tahmin değerinden büyük";
-    }
-
+    $Bmr = 88.362 + (13.397 * $weight) + (4.799 * $height) - (5.677 * $age);
+    echo "BMR:".$Bmr."\n";
 }
 
 #Cinsiyet Kadınsa
 elseif ($gender == 'female'){
-    $fBmr = 447.593 + (9.247 * $weight) + (3.098 * $height) - (4.330 * $age);
-    echo "BMR:".$fBmr."\n";
-    if ($guess > $fBmr){
-        echo "Tahmin değerinden düşük";
-    }
-    elseif ($guess == $fBmr){
-        echo "Tahmin değerine eşit";
-    }
-    elseif ($guess < $fBmr){
-        echo "Tahmin değerinden büyük";
-    }
+    $Bmr = 447.593 + (9.247 * $weight) + (3.098 * $height) - (4.330 * $age);
+    echo "BMR:".$Bmr."\n";
 }
+
+#Eğer gender değişkeni male ya da female olarak belirlenmemişse uyarı çıktısı verilir ve program sonlanır.
+else {
+    echo "Lütfen gender değişkenini 'male' ya da 'female' olarak belirleyin";
+    exit(); // Programı sonlandırma fonksiyonu
+}
+
+#Tahmin değeri ile karşılaştırma
+if ($guess > $Bmr){
+    echo "Tahmin değerinden düşük";
+}
+elseif ($guess == $Bmr){
+    echo "Tahmin değerine eşit";
+}
+elseif ($guess < $Bmr){
+    echo "Tahmin değerinden büyük";
+}
+
 /**
  * Bu ödevde bazal metabolizma hesaplaması yapacağız.
  * Yukarıdaki değişkenleri ve aşağıdaki formülü kullanarak
